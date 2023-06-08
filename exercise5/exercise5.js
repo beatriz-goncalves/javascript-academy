@@ -10,17 +10,22 @@ const food =
         { name: "Tortilla", origin: "Spain", price: 7.5 }
     ];
 
+const tst = "Select the origin";
+
 const initPage = () => {
-    initFoodInformation();
+    buildFoodInformation();
     const options = fillDropdown(getAllOrigins());
     showInformationByOptionSelected(options);
 }
 
-const initFoodInformation = () => {
+const buildFoodInformation = (infoFood) => {
+    let foodArray;
     const result = document.getElementById("result");
     result.innerHTML = "";
 
-    food.forEach(food => {
+    infoFood === undefined ? foodArray = food : foodArray = infoFood;
+
+    foodArray.forEach(food => {
         const foodNameDiv = document.createElement("div");
         const foodPriceDiv = document.createElement("div");
         const foodOriginDiv = document.createElement("div");
@@ -37,7 +42,7 @@ const initFoodInformation = () => {
 }
 
 const getAllOrigins = () => {
-    let originArray = ['Select the origin'];
+    let originArray = [tst];
     food.forEach((item) => {
         originArray.push(item.origin)
     });
@@ -58,14 +63,15 @@ const fillDropdown = (options) => {
     return dropdown;
 }
 
-
 const showInformationByOptionSelected = (dropdownOptions) => {
     dropdownOptions.addEventListener("change", (() => {
         const origin = document.getElementById("dropdownList").value;
 
+        if (origin === tst) return buildFoodInformation();
+
         const foodFiltered = filterFoodByOrigin(food, origin);
         const foodUpdated = updatePriceFood(foodFiltered);
-        buildInformation(foodUpdated);
+        buildFoodInformation(foodUpdated);
     }))
 }
 
@@ -80,23 +86,6 @@ const updatePriceFood = (foodFiltered) => {
             price: foodItem.price * 3
         }
     })
-}
-
-const buildInformation = (foodUpdated) => {
-    const result = document.getElementById("result");
-    result.innerHTML = "";
-
-    foodUpdated.forEach(food => {
-        const foodNameDiv = document.createElement("div");
-        const foodPriceDiv = document.createElement("div");
-        const paragraf = document.createElement("div");
-        foodNameDiv.innerHTML = `<b>Food:</b> ${food.name}`;
-        foodPriceDiv.innerHTML = `<b>Preço:</b> ${food.price.toFixed(2)} euros`;
-        paragraf.innerHTML = `<p></p>`;
-        result.appendChild(foodNameDiv);
-        result.appendChild(foodPriceDiv);
-        result.appendChild(paragraf);
-    });
 }
 
 window.addEventListener("load", initPage);
