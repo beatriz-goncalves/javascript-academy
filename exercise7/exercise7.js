@@ -10,6 +10,8 @@ const cats =
         { name: "Boneca", race: "Burmilla", age: 12, color: "Black and White" },
     ];
 
+const firstOption = "Select the name";
+
 const initPage = () => {
     buildCatsInformation();
     const options = fillDropdownName(getAllNames());
@@ -17,7 +19,7 @@ const initPage = () => {
 }
 
 const getAllNames = () => {
-    let nameArray = ['Select the name'];
+    let nameArray = [firstOption];
     cats.forEach((cat) => {
         nameArray.push(cat.name);
     })
@@ -39,11 +41,14 @@ const fillDropdownName = (optionsName) => {
     return dropdown;
 }
 
-const buildCatsInformation = () => {
+const buildCatsInformation = (catsInfo) => {
+    let catsArray;
     const result = document.getElementById("result");
     result.innerHTML = "";
 
-    cats.forEach(cat => {
+    catsInfo === undefined ? catsArray = cats : catsArray = catsInfo;
+
+    catsArray.forEach(cat => {
         const catNameDiv = document.createElement("div");
         const raceCatDiv = document.createElement("div");
         const ageCatDiv = document.createElement("div");
@@ -75,36 +80,14 @@ const findFirstCat = (cats, catName) => {
 
 const buildInformation = (cat) => {
     let informationCat = document.getElementById("informationCat");
-    informationCat.innerHTML = `The first cat found with this name (${cat.name}) has these characteristics: <p></p>
+    cat === undefined ? informationCat.innerHTML = " " :
+        informationCat.innerHTML = `The first cat found with this name (${cat.name}) has these characteristics: <p></p>
     <b>Race:</b> ${cat.race}, <b>Age:</b>${cat.age}, <b>Color:</b>${cat.color}.`
 }
 
 const changeCatsPositions = () => {
     let catsSort = cats.sort(() => Math.random() - 0.5);
-    buildCatsInformationSort(catsSort);
-}
-
-const buildCatsInformationSort = (cats) => {
-    const result = document.getElementById("result");
-    result.innerHTML = "";
-
-    cats.forEach(cat => {
-        const catNameDiv = document.createElement("div");
-        const raceCatDiv = document.createElement("div");
-        const ageCatDiv = document.createElement("div");
-        const colorCatDiv = document.createElement("div");
-        const paragraf = document.createElement("div");
-        catNameDiv.innerHTML = `<b>Name:</b> ${cat.name}`;
-        raceCatDiv.innerHTML = `<b>Race:</b> ${cat.race}`;
-        ageCatDiv.innerHTML = `<b>Age:</b> ${cat.age}`;
-        colorCatDiv.innerHTML = `<b>Color:</b> ${cat.color}`;
-        paragraf.innerHTML = `<p></p>`;
-        result.appendChild(catNameDiv);
-        result.appendChild(raceCatDiv);
-        result.appendChild(ageCatDiv);
-        result.appendChild(colorCatDiv);
-        result.appendChild(paragraf);
-    });
+    buildCatsInformation(catsSort);
 }
 
 window.addEventListener("load", initPage);
