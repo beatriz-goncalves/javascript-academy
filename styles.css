@@ -1,0 +1,17 @@
+.buttonExercise {
+    background-color: brown;
+    border-radius: 5px;
+    height: 70px;
+    width: 10%;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
