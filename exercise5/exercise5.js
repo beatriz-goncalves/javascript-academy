@@ -9,8 +9,6 @@ const food =
         { name: "Gazpacho", origin: "Spain", price: 13 },
         { name: "Tortilla", origin: "Spain", price: 7.5 }
     ];
-// ao selection 'select', voltar a aparecer a lista toda
-// ver se o código esta bom ou é necessário melhorar
 
 const initPage = () => {
     initFoodInformation();

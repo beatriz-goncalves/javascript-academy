@@ -10,8 +10,6 @@ const cats =
         { name: "Boneca", race: "Burmilla", age: 12, color: "Black and White" },
     ];
 
-//ver o que melhorar no código
-// quando clicar em select name, desaparecer as mensagens
 const initPage = () => {
     buildCatsInformation();
     const options = fillDropdownName(getAllNames());
