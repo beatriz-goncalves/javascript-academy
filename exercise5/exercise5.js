@@ -10,7 +10,7 @@ const food =
         { name: "Tortilla", origin: "Spain", price: 7.5 }
     ];
 
-const tst = "Select the origin";
+const firstOption = "Select the origin";
 
 const initPage = () => {
     buildFoodInformation();
@@ -42,7 +42,7 @@ const buildFoodInformation = (infoFood) => {
 }
 
 const getAllOrigins = () => {
-    let originArray = [tst];
+    let originArray = [firstOption];
     food.forEach((item) => {
         originArray.push(item.origin)
     });
@@ -67,7 +67,7 @@ const showInformationByOptionSelected = (dropdownOptions) => {
     dropdownOptions.addEventListener("change", (() => {
         const origin = document.getElementById("dropdownList").value;
 
-        if (origin === tst) return buildFoodInformation();
+        if (origin === firstOption) return buildFoodInformation();
 
         const foodFiltered = filterFoodByOrigin(food, origin);
         const foodUpdated = updatePriceFood(foodFiltered);
