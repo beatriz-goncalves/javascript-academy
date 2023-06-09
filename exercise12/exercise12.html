@@ -16,6 +16,13 @@
         returns "integer" if it's a number, "string" if it's a string, "boolean" if it's a boolean,
         returns "Not a number, string, or boolean" if it doesn't match any of the expected types.
     </h3>
+
+    <label> Please enter what you want (text, number, bool) </label>
+    <input type="text" id="information" placeholder="Text / Number / Bool">
+    <p></p>
+    <button onclick="submitInformation()">Submit</button>
+    <p id="result"></p>
+
     <p></p>
     <div class="goBackButton" onclick="window.location.href='javascript:history.back()'">
         Go Back
