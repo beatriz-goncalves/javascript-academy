@@ -16,6 +16,29 @@
         It checks whether a string starts with the characters of a specified string and returns true or false
         accordingly.
     </h3>
+
+    <button onclick="generateRandomText()">Generate random text</button>
+    <p id="randomText"></p>
+
+    <label>
+        After generating the phrase, please enter a string that you want to find in the phrase seen above.
+    </label>
+    <p></p>
+    <input type="text" id="text" placeholder="Text">
+    <p></p>
+
+    <label>
+        You can add here the position you want to find the string. If you don't add any position, the
+        string you entered will be searched for at the beginning.
+    </label>
+    <p></p>
+    <input type="number" id="position" placeholder="Position">
+
+    <p></p>
+    <button onclick="submitInformation()">Submit</button>
+
+    <p id="result"></p>
+
     <p></p>
     <div class="goBackButton" onclick="window.location.href='javascript:history.back()'">
         Go Back
