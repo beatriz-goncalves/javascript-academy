@@ -10,5 +10,5 @@ const validateAge = (age) => {
 
 const updateInformation = (ageInfo) => {
     let information = document.getElementById("information");
-    information.innerHTML = `O resultado é: ${ageInfo}.`;
+    information.innerHTML = `The result is: ${ageInfo}.`;
 }
