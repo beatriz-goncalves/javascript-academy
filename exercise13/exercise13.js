@@ -33,15 +33,12 @@ const updateInformation = (result) => {
 }
 
 String.prototype.withStart = function (textToCompare, startIndex = 0) {
+    debugger;
     let charactersToIndexInserted = this.toString().substring(startIndex);
 
     let textToCompareLength = textToCompare.length;
 
-    let numOfCharToSlice = charactersToIndexInserted.length - textToCompareLength;
-
-    let indexToRemove = charactersToIndexInserted.length - numOfCharToSlice;
-
-    let originalStringToCompare = charactersToIndexInserted.slice(0, indexToRemove)
+    let originalStringToCompare = charactersToIndexInserted.slice(0, textToCompareLength)
 
     return originalStringToCompare === textToCompare;
 };
