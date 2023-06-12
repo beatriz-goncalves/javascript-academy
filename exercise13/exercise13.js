@@ -24,7 +24,7 @@ const submitInformation = () => {
 }
 
 const verifyText = (randomText, text, position) => {
-    return result = randomText.test(text, position);
+    return result = randomText.withStart(text, position);
 }
 
 const updateInformation = (result) => {
@@ -32,7 +32,7 @@ const updateInformation = (result) => {
     textResult.innerHTML = `The result is: ${result}`;
 }
 
-String.prototype.test = function (textToCompare, startIndex = 0) {
+String.prototype.withStart = function (textToCompare, startIndex = 0) {
     let charactersToIndexInserted = this.toString().substring(startIndex);
 
     let textToCompareLength = textToCompare.length;
