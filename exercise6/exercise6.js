@@ -5,7 +5,7 @@ const todo =
         { project: "Task 3", dueDate: "23/06/2023/06/2023", status: "In progress" },
         { project: "Task 4", dueDate: "31/07/2023", status: "Not started" },
         { project: "Task 5", dueDate: "05/06/2023", status: "Completed" },
-        { project: "Task 6", dueDate: "28/06/2023/06/2023", status: "In progress" },
+        { project: "Task 6", dueDate: "28/06/2023", status: "In progress" },
     ];
 
 

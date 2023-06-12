@@ -67,11 +67,11 @@ const buildCatsInformation = (catsInfo) => {
 }
 
 const showInformationByCatNameSelected = (dropdownOptions) => {
-    dropdownOptions.addEventListener("change", (() => {
+    dropdownOptions.addEventListener("click", () => {
         const catName = document.getElementById("dropdownList").value;
         const cat = findFirstCat(cats, catName);
         buildInformation(cat);
-    }))
+    })
 }
 
 const findFirstCat = (cats, catName) => {
@@ -88,6 +88,7 @@ const buildInformation = (cat) => {
 const changeCatsPositions = () => {
     let catsSort = cats.sort(() => Math.random() - 0.5);
     buildCatsInformation(catsSort);
+    buildInformation();
 }
 
 window.addEventListener("load", initPage);
