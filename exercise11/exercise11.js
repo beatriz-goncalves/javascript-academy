@@ -7,7 +7,7 @@ const submitInformation = () => {
 }
 
 const validateLastCharacter = (text, character) => {
-    return character === text.slice(-1)
+    return character === text.slice(-1) ? true : false;
 }
 
 const updateInformation = (validateCharacter) => {

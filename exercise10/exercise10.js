@@ -5,7 +5,7 @@ const submitInformation = () => {
 }
 
 const validateAge = (age) => {
-    return age >= 18;
+    return age >= 18 ? true : false;
 }
 
 const updateInformation = (ageInfo) => {

@@ -1,6 +1,5 @@
 const submitInformation = () => {
     let information = document.getElementById("information").value;
-
     let typeOf = validateTypeof(information);
     updateScreen(typeOf);
 }
@@ -26,6 +25,10 @@ const validateTypeof = (information) => {
 
     return typeOf;
 }
+
+// const validateTypeOf = (value) => {
+//     return typeof value === 'number' ? 'integer' : typeof value === 'string' ? 'string' : typeof value === 'boolean' ? 'boolean' : 'Not a number, string, or boolean';
+// }
 
 const updateScreen = (typeOf) => {
     let result = document.getElementById("result");

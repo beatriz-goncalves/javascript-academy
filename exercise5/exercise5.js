@@ -69,9 +69,18 @@ const showInformationByOptionSelected = (dropdownOptions) => {
 
         if (origin === firstOption) return buildFoodInformation();
 
-        const foodFiltered = filterFoodByOrigin(food, origin);
-        const foodUpdated = updatePriceFood(foodFiltered);
+        // const foodFiltered = filterFoodByOrigin(food, origin);
+        // const foodUpdated = updatePriceFood(foodFiltered);
+        const foodUpdated = filteredAndUpdatedFood(food, origin);
         buildFoodInformation(foodUpdated);
+    }))
+}
+
+const filteredAndUpdatedFood = (food, origin) => {
+    let foodItem = [...food];
+    return foodItem.filter((originFood) => originFood.origin === origin).map((filterFood) => ({
+        ...filterFood,
+        price: filterFood.price * 3
     }))
 }
 

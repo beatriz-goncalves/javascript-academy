@@ -17,14 +17,10 @@ const updateRandomText = (randomText) => {
 
 const submitInformation = () => {
     let text = document.getElementById("text").value;
-    let position = document.getElementById("position").value;
+    // let position = document.getElementById("position").value;
 
-    let result = verifyText(randomText, text, position);
+    let result = stringStartWith(randomText, text);
     updateInformation(result);
-}
-
-const verifyText = (randomText, text, position) => {
-    return result = randomText.withStart(text, position);
 }
 
 const updateInformation = (result) => {
@@ -32,14 +28,22 @@ const updateInformation = (result) => {
     textResult.innerHTML = `The result is: ${result}`;
 }
 
-String.prototype.withStart = function (textToCompare, startIndex = 0) {
-    debugger;
-    let charactersToIndexInserted = this.toString().substring(startIndex);
+const stringStartWith = (text, textToCompare) => {
+    return text.slice(0, textToCompare.length) === textToCompare;
+}
 
-    let textToCompareLength = textToCompare.length;
+// const verifyText = (randomText, text, position) => {
+//     return result = randomText.withStart(text, position);
+// }
 
-    let originalStringToCompare = charactersToIndexInserted.slice(0, textToCompareLength)
+// String.prototype.withStart = function (textToCompare, startIndex = 0) {
+//     let charactersToIndexInserted = this.toString().substring(startIndex);
 
-    return originalStringToCompare === textToCompare;
-};
+//     let textToCompareLength = textToCompare.length;
+
+//     let originalStringToCompare = charactersToIndexInserted.slice(0, textToCompareLength)
+
+//     return originalStringToCompare === textToCompare;
+// };
+
 
